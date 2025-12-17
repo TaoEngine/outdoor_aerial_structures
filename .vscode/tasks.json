@@ -1,0 +1,22 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "构建数据结构",
+      "detail": "用于构建 OutdoorAerial 的数据结构 Dart 文件",
+      "type": "shell",
+      "command": [
+        "cd .\\proto;",
+        "protoc --dart_out=..\\build .\\broadcast_datetime.proto .\\broadcast_studio.proto .\\broadcast_program.proto;"
+      ]
+    },
+    {
+      "label": "清除数据结构",
+      "detail": "用于清除生成的 OutdoorAerial 的 Dart 数据结构",
+      "type": "shell",
+      "command": ["cd .\\build;", "del *.dart"]
+    }
+  ]
+}
