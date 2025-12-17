@@ -6,10 +6,12 @@
       "detail": "用于构建 OutdoorAerial 的数据结构 Dart 文件",
       "type": "shell",
       "command": [
+        "mkdir",
+        "build\\models;",
         "protoc",
         "-I .\\proto",
         "-I $env:GOOGLEAPIS",
-        "--dart_out=.\\build",
+        "--dart_out=.\\build\\models",
         ".\\proto\\program\\program.proto",
         ".\\proto\\station\\status.proto",
         ".\\proto\\station\\station.proto",
