@@ -3,7 +3,7 @@ edition = "2024";
 package program;
 
 import "google/type/timeofday.proto";
-import "weekdays.proto";
+import "program/weekdays.proto";
 
 /* 电台节目的数据模型
  *
