@@ -1,14 +1,14 @@
-edition = "2023";
+edition = "2024";
 
-package models;
+package program;
 
-import "broadcast_datetime.proto";
-import "broadcast_studio.proto";
+import "google/type/date.proto";
+import "google/type/timeofday.proto";
 
 // 有关电台节目的数据模型
 message BroadcastProgram {
   // Outdoor Aerial 服务器给出的电台节目 ID
-  int32                 id          = 1;
+  bytes                 id          = 1;
 
   // 电台节目的名称
   string                name        = 2;
@@ -20,16 +20,16 @@ message BroadcastProgram {
   bytes                 logo        = 4;
 
   // 电台节目隶属广播电台
-  BroadcastStudio       studio      = 5;
+  bytes                 studio      = 5;
 
   // 电台节目的固定播出日期
-  repeated WeekdaysData date        = 6;
+  repeated Weekdays     date        = 6;
 
   // 电台节目的固定播出时间
-  TimeOfDayData         start       = 7;
+  google.type.TimeOfDay start       = 7;
 
   // 电台节目的固定结束时间
-  TimeOfDayData         end         = 8;
+  google.type.TimeOfDay end         = 8;
 
   // 电台节目的主持人
   repeated string       hosts       = 9;
@@ -41,10 +41,10 @@ message BroadcastProgram {
 // 单期电台节目的数据模型
 message SingleProgram {
   // 该电台节目的节目信息
-  BroadcastProgram partof   = 1;
+  bytes            partof   = 1;
 
   // 本期电台节目的播出时间
-  DateData         time     = 2;
+  google.type.Date time     = 2;
 
   // 本期电台节目的主题
   string           title    = 3;
@@ -57,4 +57,28 @@ message SingleProgram {
 
   // 用户是否收藏本期节目
   bool             favorite = 6;
+}
+
+// 定义周数
+enum Weekdays {
+  // 周一
+  MON = 0;
+
+  // 周二
+  TUE = 1;
+
+  // 周三
+  WED = 2;
+
+  // 周四
+  THU = 3;
+
+  // 周五
+  FRI = 4;
+
+  // 周六
+  SAT = 5;
+
+  // 周日
+  SUN = 6;
 }
