@@ -5,7 +5,25 @@ package station;
 import "google/type/timeofday.proto";
 import "station/status.proto";
 
-// 有关广播电台的数据模型
+/* 广播电台的数据模型
+ *
+ * 从 Outdoor Aerial 数据平台获取的，存放在调谐器上的广播电台，
+ * 包含 **基础信息介绍**、**用户互动方式** 以及 **收听调试参数** 这三类数据
+ *
+ * - 基础信息介绍
+ *
+ * 数据包括用于区分广播电台的 **主键** UUID、广播电台的名称、向用户介绍广播电台的长文本、
+ * 所属企事业单位、广播电台所在位置的频率、当前广播电台的播出状态、广播电台的播出语言、
+ * 广播电台的开播时间和晚安时间、广播电台的 LOGO 和 Banner
+ *
+ * - 用户互动方式
+ *
+ * 数据包括该广播电台拥有可互动的社媒账号、用户是否喜爱该广播电台
+ *
+ * - 收听调试参数
+ *
+ * 数据包括... TODO 后面添加收听调试参数，从而让调谐器更适配这个广播电台
+ */
 message RadioStation {
   // Outdoor Aerial 服务器分配给广播电台的 UUID
   bytes                 uuid        = 1;
@@ -13,39 +31,40 @@ message RadioStation {
   // 该广播电台的名称，比如 “安徽交通广播”
   string                name        = 2;
 
-  // 该广播电台所属单位，比如 “安徽广播电视台”
-  string                institution = 3;
-
-  // 该广播电台拥有的社媒账号，URL 格式，点击就能跳转到指定平台
-  string                social      = 4;
-
   // 对该广播电台的长文本介绍
-  string                description = 5;
+  string                description = 3;
+
+  // 该广播电台所属单位，比如 “安徽广播电视台”
+  string                institution = 4;
 
   // 广播电台的频率，存储单位为 “兆赫兹”，比如 “90.8” 指 90.8MHz
-  double                frequency   = 6;
+  double                frequency   = 5;
 
-  // 用户是否喜爱该广播电台
-  bool                  like        = 7;
+  // TODO 广播电台的类型，比如交通、新闻、经济、综合等
 
   // 广播电台当前的播出状态，采用 StationStatus 标识状态，可标记为 “广播中”、“停机检修” 和 “停播”
-  StationStatus         status      = 8;
-
-  // 广播电台覆盖的区域范围，列表形式，存储地级市，比如 “合肥”
-  repeated string       location    = 9;
+  StationStatus         status      = 6;
 
   // 广播电台的播出语言，指定存储 ISO 地区代码，比如 “zh-CN”
-  string                language    = 10;
-
-  // 广播电台的 LOGO，将显示在播放器专辑、封面、首页中，和广播电台官方的宣发图一致
-  bytes                 logo        = 11;
-
-  // 广播电台的横幅，将用于标识节目卡片归属，需要透明 PNG 格式，内容从 LOGO 中选取非文字部分
-  bytes                 banner      = 12;
+  string                language    = 7;
 
   // 广播电台的开播时间，比如广播电台在5点开台，此处就填写5时0分。采用 TimeOfDayData 存储时间
-  google.type.TimeOfDay start       = 13;
+  google.type.TimeOfDay start       = 8;
 
   // 广播电台的晚安时间，比如广播电台在23点晚安，此处就填写23时0分。采用 TimeOfDayData 存储时间
-  google.type.TimeOfDay end         = 14;
+  google.type.TimeOfDay end         = 9;
+
+  // 广播电台的 LOGO，将显示在播放器专辑、封面、首页中，和广播电台官方的宣发图一致
+  bytes                 logo        = 10;
+
+  // 广播电台的横幅，将用于标识节目卡片归属，需要透明 PNG 格式，内容从 LOGO 中选取非文字部分
+  bytes                 banner      = 11;
+
+  // 用户是否喜爱该广播电台
+  bool                  like        = 12;
+
+  // 该广播电台拥有的社媒账号，URL 格式，点击就能跳转到指定平台
+  string                social      = 13;
+
+  // TODO: 在此添加相关参数
 }

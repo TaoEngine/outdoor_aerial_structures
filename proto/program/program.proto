@@ -2,83 +2,46 @@ edition = "2024";
 
 package program;
 
-import "google/type/date.proto";
 import "google/type/timeofday.proto";
+import "weekdays.proto";
 
-// 有关电台节目的数据模型
+/* 电台节目的数据模型
+ *
+ * 从 Outdoor Aerial 数据平台获取的，存放在调谐器上的节目清单，
+ * 包含 **基础信息介绍**
+ */
 message Program {
-  // Outdoor Aerial 服务器给出的电台节目 ID
-  bytes                 id          = 1;
+  // Outdoor Aerial 服务器分配给电台节目的 UUID
+  bytes                    uuid        = 1;
 
-  // 电台节目的名称
-  string                name        = 2;
+  // 该电台节目的名称，比如 “心花一路·FUN”
+  string                   name        = 2;
 
-  // 对该电台节目的介绍
-  string                description = 3;
+  // 对该电台节目的长文本介绍
+  string                   description = 3;
 
-  // 电台节目的 Logo 数据
-  bytes                 logo        = 4;
+  // TODO 电台节目所属广播电台
+  bytes                    studio      = 4;
 
-  // 电台节目隶属广播电台
-  bytes                 studio      = 5;
+  // TODO 电台节目的主播
+  repeated string          hosts       = 5;
 
-  // 电台节目的固定播出日期
-  repeated Weekdays     date        = 6;
+  // TODO 电台节目的固定播出日期
+  repeated ProgramWeekdays date        = 6;
 
-  // 电台节目的固定播出时间
-  google.type.TimeOfDay start       = 7;
+  // TODO 电台节目的固定播出时间
+  google.type.TimeOfDay    start       = 7;
 
-  // 电台节目的固定结束时间
-  google.type.TimeOfDay end         = 8;
+  // TODO 电台节目的固定结束时间
+  google.type.TimeOfDay    end         = 8;
 
-  // 电台节目的主持人
-  repeated string       hosts       = 9;
+  // TODO 电台节目的类型，比如新闻、音乐、访谈、聊天等
 
-  // 用户是否喜爱该电台节目
-  bool                  like        = 10;
-}
+  // TODO 电台当前的播出状态，标记为开播、重播、暂播
 
-// 单期电台节目的数据模型
-message SingleProgram {
-  // 该电台节目的节目信息
-  bytes            partof   = 1;
+  // TODO 电台节目的专属封面数据
+  bytes                    logo        = 9;
 
-  // 本期电台节目的播出时间
-  google.type.Date time     = 2;
-
-  // 本期电台节目的主题
-  string           title    = 3;
-
-  // 本期电台节目的摘要
-  string           abstract = 4;
-
-  // 本期电台节目的配图数据
-  bytes            image    = 5;
-
-  // 用户是否收藏本期节目
-  bool             favorite = 6;
-}
-
-// 定义周数
-enum Weekdays {
-  // 周一
-  MON = 0;
-
-  // 周二
-  TUE = 1;
-
-  // 周三
-  WED = 2;
-
-  // 周四
-  THU = 3;
-
-  // 周五
-  FRI = 4;
-
-  // 周六
-  SAT = 5;
-
-  // 周日
-  SUN = 6;
+  // TODO 用户是否喜爱该电台节目
+  bool                     like        = 10;
 }

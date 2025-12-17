@@ -12,9 +12,11 @@
         "-I .\\proto",
         "-I $env:GOOGLEAPIS",
         "--dart_out=.\\build\\models",
-        "$env:GOOGLEAPIS\\google\\type\\timeofday.proto",
         "$env:GOOGLEAPIS\\google\\type\\date.proto",
+        "$env:GOOGLEAPIS\\google\\type\\timeofday.proto",
+        ".\\proto\\program\\weekdays.proto",
         ".\\proto\\program\\program.proto",
+        ".\\proto\\program\\program_single.proto",
         ".\\proto\\station\\status.proto",
         ".\\proto\\station\\station.proto",
         ".\\proto\\programs.proto"
