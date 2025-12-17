@@ -6,7 +6,7 @@ import "google/type/date.proto";
 import "google/type/timeofday.proto";
 
 // 有关电台节目的数据模型
-message BroadcastProgram {
+message Program {
   // Outdoor Aerial 服务器给出的电台节目 ID
   bytes                 id          = 1;
 

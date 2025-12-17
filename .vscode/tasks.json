@@ -12,7 +12,8 @@
         "--dart_out=.\\build",
         ".\\proto\\program\\program.proto",
         ".\\proto\\station\\status.proto",
-        ".\\proto\\station\\station.proto"
+        ".\\proto\\station\\station.proto",
+        ".\\proto\\programs.proto"
       ]
     },
     {
