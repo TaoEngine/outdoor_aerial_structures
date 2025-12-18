@@ -16,7 +16,8 @@
         "$env:GOOGLEAPIS\\google\\type\\timeofday.proto",
         ".\\proto\\program\\weekdays.proto",
         ".\\proto\\program\\program.proto",
-        ".\\proto\\program\\program_single.proto",
+        ".\\proto\\program\\single.proto",
+        ".\\proto\\station\\type.proto",
         ".\\proto\\station\\status.proto",
         ".\\proto\\station\\station.proto",
         ".\\proto\\programs.proto"
