@@ -8,11 +8,11 @@ package station;
  */
 enum StationStatus {
   // 广播中
-  ONAIR       = 0;
+  ONAIR = 0;
 
   // 停机检修
   MAINTAINING = 1;
 
   // 电台停播
-  OFFAIR      = 2;
+  OFFAIR = 2;
 }

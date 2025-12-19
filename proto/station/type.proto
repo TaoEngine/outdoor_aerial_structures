@@ -11,38 +11,38 @@ package station;
  */
 enum StationType {
   // 综合台
-  INTERGRATED   = 0;
+  INTERGRATED = 0;
 
   // 交通台
-  TRAFFIC       = 1;
+  TRAFFIC = 1;
 
   // 音乐台
-  MUSIC         = 2;
+  MUSIC = 2;
 
   // 新闻台
-  NEWS          = 3;
+  NEWS = 3;
 
   // 经济台
-  ECONOMY       = 4;
+  ECONOMY = 4;
 
   // 体育台
-  SPORTS        = 5;
+  SPORTS = 5;
 
   // 教育台
-  EDUCATIONAL   = 6;
+  EDUCATIONAL = 6;
 
   // 科学台
-  SCIENCE       = 7;
+  SCIENCE = 7;
 
   // 国际台
   INTERNATIONAL = 8;
 
   // 农业台
-  AGRICULTURAL  = 9;
+  AGRICULTURAL = 9;
 
   // 少儿台
-  CHILDREN      = 10;
+  CHILDREN = 10;
 
   // 养生台
-  HEALTH        = 11;
+  HEALTH = 11;
 }

@@ -5,7 +5,7 @@ package program;
 import "google/type/date.proto";
 
 /* 单期电台节目的数据模型
-*/
+ */
 message SingleProgram {
   // 该电台节目的节目信息
   bytes partof = 1;
