@@ -20,7 +20,7 @@ message SingleProgram {
   string abstract = 4;
 
   // 本期电台节目的配图数据
-  bytes image = 5;
+  bytes cover = 5;
 
   // 用户是否收藏本期节目
   bool favorite = 6;

@@ -6,8 +6,7 @@ import "google/type/timeofday.proto";
 import "station/status.proto";
 import "station/type.proto";
 
-/*
- * 广播电台的数据模型
+/* 广播电台的数据模型
  *
  * 从 Outdoor Aerial 数据平台获取的，
  * 存放在调谐器上，
@@ -29,7 +28,7 @@ message RadioStation {
   // 广播电台的频率，存储单位为 “兆赫兹”，比如 “90.8” 指 90.8MHz
   double                frequency   = 5;
 
-  // 广播电台的类型，比如交通、新闻、经济、综合等。采用 StationType 区分类型
+  // 广播电台的类型，采用 StationType 区分类型，比如交通、新闻、经济、综合等。
   StationType           type        = 6;
 
   // 广播电台当前的播出状态，采用 StationStatus 标识状态，可标记为 “广播中”、“停机检修” 和 “停播”
